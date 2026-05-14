@@ -77,7 +77,7 @@ const userId =
     try {
 
      const response = await axios.get(
-       `http://localhost:5000/conversations/${userId}`
+       `https://swarajya-ai-backend.onrender.com/conversations/${userId}`
      );
 
       setConversations(response.data);
@@ -95,7 +95,7 @@ const userId =
     try {
 
       const response = await axios.post(
-        "http://localhost:5000/new-chat",
+        "https://swarajya-ai-backend.onrender.com/new-chat",
 
         {
           userId,
@@ -207,7 +207,7 @@ const speech =
     try {
 
       const response = await axios.post(
-        "http://localhost:5000/upload-pdf",
+        "https://swarajya-ai-backend.onrender.com/upload-pdf",
         formData
       );
 
@@ -262,7 +262,7 @@ const speech =
   try {
 
     const response = await axios.get(
-      `http://localhost:5000/conversations/${id}`
+      `https://swarajya-ai-backend.onrender.com/conversations/${id}`
     );
 
     setCurrentConversationId(id);
@@ -309,7 +309,7 @@ const speech =
     try {
 
       const response = await axios.post(
-        "http://localhost:5000/chat",
+        "https://swarajya-ai-backend.onrender.com/chat",
         {
           message: userInput,
           language,
