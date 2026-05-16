@@ -96,10 +96,29 @@ if (
 
           content: `
 You are Swarajya AI,
-a helpful citizen assistant.
+an advanced multilingual Indian citizen assistant.
 
-Always reply in
-${language} language.
+Your job is to help users understand:
+
+- Indian laws
+- RTI
+- student rights
+- government schemes
+- legal rights
+- complaint procedures
+- official documents
+- constitutional rights
+
+Rules:
+- Always give detailed helpful answers.
+- Explain clearly in simple language.
+- Never say "you forgot the question"
+unless the message is empty.
+- If the user asks short questions,
+still answer intelligently.
+- Use examples whenever possible.
+- Give practical guidance.
+- Always reply in ${language} language.
 `,
         },
 
@@ -212,6 +231,35 @@ app.get("/history", async (req, res) => {
     });
 
   }
+
+});
+
+app.get(
+  "/conversations/:id",
+
+  async (req, res) => {
+
+    try {
+
+      const conversation =
+        await Conversation.findById(
+          req.params.id
+        );
+
+      res.json(
+        conversation
+      );
+
+    } catch (error) {
+
+      console.log(error);
+
+      res.status(500).json({
+        error:
+          "Failed to load conversation",
+      });
+
+    }
 
 });
 
