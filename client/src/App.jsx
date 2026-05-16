@@ -80,7 +80,28 @@ const userId =
        `https://swarajya-ai-backend.onrender.com/conversations/${userId}`
      );
 
-      setConversations(response.data);
+      const formattedChats =
+  response.data.map((chat) => ({
+
+    ...chat,
+
+    title:
+
+      chat.title &&
+      chat.title !== "New Chat"
+
+        ? chat.title
+
+        : chat.messages?.[0]?.text
+            ?.substring(0, 25)
+
+        || "New Chat",
+
+  }));
+
+setConversations(
+  formattedChats
+);
 
     } catch (error) {
 
