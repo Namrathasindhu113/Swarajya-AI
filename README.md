@@ -286,7 +286,6 @@ npm run dev
 ## Developer
 
 **Namratha Sindhu**
-Information Science Engineering Student
 AI & Full Stack Development Enthusiast
 
 ---
