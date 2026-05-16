@@ -33,8 +33,23 @@ app.use(cors());
 app.use(express.json());
 
 const openai = new OpenAI({
-  baseURL: "https://openrouter.ai/api/v1",
-  apiKey: process.env.OPENROUTER_API_KEY,
+
+  baseURL:
+    "https://openrouter.ai/api/v1",
+
+  apiKey:
+    process.env.OPENROUTER_API_KEY,
+
+  defaultHeaders: {
+
+    "HTTP-Referer":
+      "https://swarajya-ai.vercel.app",
+
+    "X-Title":
+      "Swarajya AI",
+
+  },
+
 });
 
 // CHAT ROUTE
@@ -72,7 +87,7 @@ if (
     await openai.chat.completions.create({
 
       model:
-        "meta-llama/llama-3-8b-instruct:free",
+        "openai/gpt-3.5-turbo",
 
       messages: [
 
