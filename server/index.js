@@ -174,10 +174,18 @@ Answer clearly and simply.
 
 } catch (error) {
 
-  console.log(error);
+  console.log(
+    "FULL CHAT ERROR:",
+    error
+  );
 
   res.status(500).json({
-    error: "Something went wrong",
+
+    error:
+      error.message ||
+
+      "Something went wrong",
+
   });
 
 }

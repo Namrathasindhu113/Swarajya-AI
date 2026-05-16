@@ -1,23 +1,20 @@
 import fs from "fs";
 import * as pdfjsLib from "pdfjs-dist/legacy/build/pdf.mjs";
-import {
-  createEmbedding,
-  cosineSimilarity,
-} from "./vectorStore.js";
 
-
+let storedChunks = [];
 
 export const processPDF = async (filePath) => {
 
-  const dataBuffer =
-    fs.readFileSync(filePath);
+  const data = new Uint8Array(
+    fs.readFileSync(filePath)
+  );
 
   const pdf =
     await pdfjsLib.getDocument({
-      data: new Uint8Array(dataBuffer),
+      data,
     }).promise;
 
-  let extractedText = "";
+  let text = "";
 
   for (
     let i = 1;
@@ -33,80 +30,34 @@ export const processPDF = async (filePath) => {
 
     const strings =
       content.items.map(
-        item => item.str
+        (item) => item.str
       );
 
-    extractedText +=
-      strings.join(" ") + "\n";
+    text +=
+      strings.join(" ") + " ";
 
   }
 
-  const chunks = [];
+  storedChunks =
+    text.match(/.{1,500}/g) || [];
 
-  const chunkSize = 500;
-
-  for (
-    let i = 0;
-    i < extractedText.length;
-    i += chunkSize
-  ) {
-
-   const chunk =
-  extractedText.slice(
-    i,
-    i + chunkSize
-  );
-
-const embedding =
-  await createEmbedding(chunk);
-
-chunks.push({
-  text: chunk,
-  embedding,
-});
-
-  }
-
-  return chunks;
+  return storedChunks;
 
 };
 
 export const retrieveRelevantChunks =
-  async (
-    question,
-    pdfChunks
-  ) => {
+  async (query) => {
 
-    const questionEmbedding =
-      await createEmbedding(
-        question
-      );
+    if (
+      storedChunks.length === 0
+    ) {
 
-    const similarities =
-      pdfChunks.map((chunk) => {
+      return "No PDF uploaded";
 
-        const similarity =
-          cosineSimilarity(
-            questionEmbedding,
-            chunk.embedding
-          );
+    }
 
-        return {
-          text: chunk.text,
-          similarity,
-        };
-
-      });
-
-    similarities.sort(
-      (a, b) =>
-        b.similarity -
-        a.similarity
-    );
-
-    return similarities
+    return storedChunks
       .slice(0, 3)
-      .map((c) => c.text)
-      .join("\n");
+      .join(" ");
 
 };
