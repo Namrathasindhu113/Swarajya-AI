@@ -212,6 +212,8 @@ const speech =
       );
 
       setPdfText(response.data.text);
+      console.log(response.data);
+      console.log(response.data.text);
 
       alert("PDF uploaded successfully!");
 

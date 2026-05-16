@@ -49,6 +49,10 @@ app.post("/chat", async (req, res) => {
       language = "English",
     } = req.body;
 
+    console.log("MESSAGE:", message);
+
+    console.log("PDF TEXT:", pdfText);
+
     let relevantContext = "";
 
 if (
@@ -75,9 +79,15 @@ if (
           },
           {
             role: "user",
-            content: pdfText
-              ? `Relevant PDF Context:\n${relevantContext}\n\nUser Question: ${message}`
-              : message,
+            content: `
+            Relevant PDF Context:
+            ${relevantContext || pdfText || "No PDF uploaded"}
+
+            User Question:
+            ${message}
+
+            Answer clearly and simply in ${language} language.
+            `,
           },
         ],
 
