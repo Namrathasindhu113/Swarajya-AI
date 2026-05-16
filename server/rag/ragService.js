@@ -3,7 +3,9 @@ import * as pdfjsLib from "pdfjs-dist/legacy/build/pdf.mjs";
 
 let storedChunks = [];
 
-export const processPDF = async (filePath) => {
+export const processPDF = async (
+  filePath
+) => {
 
   const data = new Uint8Array(
     fs.readFileSync(filePath)
