@@ -12,6 +12,52 @@ The platform leverages conversational AI, Retrieval-Augmented Generation (RAG), 
 
 ---
 
+---
+
+## Problem Statement
+
+Accessing legal rights, government schemes, grievance systems, and public information in India remains highly fragmented, language-restricted, and difficult for ordinary citizens to navigate.
+
+Millions of citizens struggle with:
+- understanding official procedures
+- accessing regional-language legal guidance
+- interpreting government documents
+- navigating complaint systems
+- discovering welfare opportunities
+
+Swarajya AI aims to solve this accessibility gap using multilingual conversational AI.
+
+---
+
+## Vision
+
+Swarajya AI is being developed as a scalable AI-powered civic infrastructure platform designed to democratize access to governance, legal awareness, and public services across India.
+
+The long-term vision includes:
+- multilingual legal intelligence
+- AI-driven public assistance
+- government document understanding
+- grievance automation
+- voice-first accessibility
+- AI-powered citizen support systems
+
+The platform is intended to evolve into a comprehensive AI ecosystem for public service accessibility and civic empowerment.
+
+---
+
+## Potential Impact
+
+Swarajya AI has potential applications across:
+- legal accessibility
+- e-governance
+- rural accessibility
+- education
+- welfare awareness
+- public grievance systems
+- digital inclusion
+
+The platform is designed with scalability, multilingual accessibility, and AI-driven automation as core principles.
+
 ## Core Features
 
 ### AI-Powered Citizen Assistance
