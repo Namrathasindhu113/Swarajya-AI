@@ -502,6 +502,71 @@ app.get("/conversations/:id", async (req, res) => {
 
 });
 
+// GET ALL CONVERSATIONS OF USER
+app.get(
+  "/conversations/:userId",
+  async (req, res) => {
+
+    try {
+
+      const conversations =
+        await Conversation.find({
+
+          userId:
+            req.params.userId,
+
+        }).sort({
+          updatedAt: -1,
+        });
+
+      res.json(
+        conversations
+      );
+
+    } catch (error) {
+
+      console.log(error);
+
+      res.status(500).json({
+        error:
+          "Failed to fetch conversations",
+      });
+
+    }
+
+  }
+);
+
+// GET SINGLE CONVERSATION
+app.get(
+  "/conversation/:id",
+  async (req, res) => {
+
+    try {
+
+      const conversation =
+        await Conversation.findById(
+          req.params.id
+        );
+
+      res.json(
+        conversation
+      );
+
+    } catch (error) {
+
+      console.log(error);
+
+      res.status(500).json({
+        error:
+          "Failed to fetch conversation",
+      });
+
+    }
+
+  }
+);
+
 app.listen(5000, () => {
 
   console.log(

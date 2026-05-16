@@ -77,7 +77,7 @@ const userId =
     try {
 
      const response = await axios.get(
-       `https://swarajya-ai-backend.onrender.com/conversations/${userId}`
+       `https://swarajya-ai-backend.onrender.com/conversation/${userId}`
      );
 
       const formattedChats =
@@ -285,7 +285,7 @@ const speech =
   try {
 
     const response = await axios.get(
-      `https://swarajya-ai-backend.onrender.com/conversations/${id}`
+      `https://swarajya-ai-backend.onrender.com/conversation/${id}`
     );
 
     setCurrentConversationId(id);
