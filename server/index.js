@@ -234,9 +234,44 @@ app.get("/history", async (req, res) => {
 
 });
 
+// GET ALL CONVERSATIONS OF USER
 app.get(
-  "/conversations/:id",
+  "/conversations/:userId",
+  async (req, res) => {
 
+    try {
+
+      const conversations =
+        await Conversation.find({
+
+          userId:
+            req.params.userId,
+
+        }).sort({
+          updatedAt: -1,
+        });
+
+      res.json(
+        conversations || []
+      );
+
+    } catch (error) {
+
+      console.log(error);
+
+      res.status(500).json({
+        error:
+          "Failed to fetch conversations",
+      });
+
+    }
+
+  }
+);
+
+// GET SINGLE CONVERSATION
+app.get(
+  "/conversation/:id",
   async (req, res) => {
 
     try {
@@ -261,8 +296,8 @@ app.get(
 
     }
 
-});
-
+  }
+);
 
 // PDF UPLOAD ROUTE
 app.post(
