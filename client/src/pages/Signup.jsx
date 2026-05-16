@@ -18,7 +18,7 @@ function Signup() {
 
       const response =
         await axios.post(
-          "http://localhost:5000/signup",
+          "https://swarajya-ai-backend.onrender.com/signup",
           {
             name,
             email,

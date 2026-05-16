@@ -373,18 +373,23 @@ const speech =
 
           {conversations.map((chat) => (
 
-            <div
-              key={chat._id}
-              onClick={() =>
-                loadConversation(chat._id)
-              }
-              className="bg-slate-800 hover:bg-slate-700 p-3 rounded-xl cursor-pointer transition"
-            >
-              {chat.title}
-            </div>
+  <div
+    key={chat._id}
+    onClick={() =>
+      loadConversation(chat._id)
+    }
+    className="bg-slate-800 hover:bg-slate-700 transition p-4 rounded-2xl cursor-pointer mb-3 text-white"
+  >
 
-          ))}
+    {
+      chat.title ||
+      chat.messages?.[0]?.text ||
+      "New Chat"
+    }
 
+  </div>
+
+))}
         </div>
 
       </div>

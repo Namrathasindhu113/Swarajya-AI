@@ -58,7 +58,6 @@ if (
   relevantContext =
     await retrieveRelevantChunks(
       message,
-      pdfChunks
     );
 
 }
