@@ -187,7 +187,7 @@ app.post(
       pdfChunks = chunks;
 
       res.json({
-        chunks,
+        text:chunks.join(" "),
       });
 
     } catch (error) {
