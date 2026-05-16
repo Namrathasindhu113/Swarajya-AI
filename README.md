@@ -1,22 +1,15 @@
 ````md
 # Swarajya AI
 
-Swarajya AI is a multilingual AI-powered citizen assistance platform designed to improve accessibility to legal rights, government schemes, constitutional information, and public grievance guidance for Indian citizens.
-
-The platform combines conversational AI, Retrieval-Augmented Generation (RAG), multilingual processing, document understanding, and voice interaction to simplify complex civic and legal information into understandable, actionable guidance.
+### A Multilingual AI-Powered Legal Rights & Government Services Assistant
 
 ---
 
-## Project Vision
+## Overview
 
-The objective of Swarajya AI is to bridge the gap between citizens and public/legal systems through artificial intelligence.
+Swarajya AI is an intelligent conversational platform designed to simplify access to legal rights, government schemes, grievance procedures, and official documentation for Indian citizens.
 
-The platform is designed to:
-- Improve accessibility to legal and constitutional knowledge
-- Simplify government processes and welfare awareness
-- Enable multilingual interaction for broader inclusivity
-- Assist users in understanding official documents and PDFs
-- Provide AI-powered guidance in a conversational format
+The platform leverages conversational AI, Retrieval-Augmented Generation (RAG), multilingual processing, and document intelligence to bridge the gap between complex legal systems and everyday users through a modern AI-powered interface.
 
 ---
 
@@ -24,11 +17,11 @@ The platform is designed to:
 
 ### AI-Powered Citizen Assistance
 - Conversational AI support for legal and civic guidance
-- Context-aware responses using large language models
-- Simplified explanations for complex topics
+- Context-aware responses using advanced language models
+- Simplified explanations for complex constitutional and legal topics
 
 ### Multilingual Support
-Supports multiple Indian regional languages including:
+Supports multiple regional languages including:
 - English
 - Hindi
 - Tamil
@@ -41,30 +34,30 @@ Supports multiple Indian regional languages including:
 - Punjabi
 - Urdu
 
-### Retrieval-Augmented Generation (RAG)
+### PDF Intelligence & RAG System
 - Upload and analyze PDF documents
-- Extract contextual information from documents
-- Ask questions directly related to uploaded PDFs
-- AI-powered summarization and contextual retrieval
+- Retrieval-Augmented Generation (RAG)
+- Context-based document querying
+- AI-powered summarization and explanation
 
 ### Voice Interaction
-- AI-generated voice responses
-- Speech synthesis for multilingual output
-- Browser-based speech recognition support
+- Speech-to-text support
+- AI voice response generation
+- Multilingual audio interaction
 
 ### Authentication & User Management
-- Secure JWT-based authentication
-- User-specific conversation management
-- Persistent chat history storage
+- JWT-based secure authentication
+- Persistent user conversations
+- Conversation history management
 
-### Persistent Conversations
-- Multiple conversation sessions
-- Sidebar-based conversation history
-- Conversation restoration from MongoDB database
+### Conversation Persistence
+- Dynamic sidebar conversation history
+- MongoDB conversation storage
+- Real-time conversation retrieval
 
 ---
 
-## Technical Architecture
+## Technical Stack
 
 ### Frontend
 - React.js
@@ -80,12 +73,12 @@ Supports multiple Indian regional languages including:
 
 ### AI & NLP
 - OpenRouter API
-- OpenAI-compatible models
-- Retrieval-Augmented Generation pipeline
+- OpenAI-compatible LLMs
+- Retrieval-Augmented Generation (RAG)
 
 ### Document Processing
 - pdfjs-dist
-- Custom chunk-based retrieval system
+- Custom chunk retrieval pipeline
 
 ### Deployment
 - Vercel (Frontend)
@@ -93,14 +86,26 @@ Supports multiple Indian regional languages including:
 
 ---
 
-## System Workflow
+## System Architecture
 
-1. User sends a multilingual query or uploads a PDF document.
-2. Backend processes the request and retrieves relevant contextual information.
-3. AI model generates context-aware responses.
-4. Conversations are stored in MongoDB for persistence.
-5. Responses are returned in the selected regional language.
-6. Optional speech synthesis converts responses into voice output.
+```text
+Client (React + Vite)
+        │
+        ▼
+Express.js Backend API
+        │
+ ┌───────────────┐
+ │ OpenRouter AI │
+ └───────────────┘
+        │
+ ┌───────────────┐
+ │ MongoDB Atlas │
+ └───────────────┘
+        │
+ ┌───────────────┐
+ │ PDF RAG Layer │
+ └───────────────┘
+````
 
 ---
 
@@ -123,7 +128,7 @@ Swarajya-AI/
 │
 ├── README.md
 └── .env
-````
+```
 
 ---
 
@@ -166,7 +171,7 @@ OPENROUTER_API_KEY=your_openrouter_api_key
 
 ---
 
-## Running the Application
+## Running the Project
 
 ### Start Backend
 
@@ -186,47 +191,45 @@ npm run dev
 
 ## Deployment
 
-### Frontend Deployment
+### Frontend
 
-Hosted on Vercel:
-https://swarajya-ai.vercel.app
+[https://swarajya-ai.vercel.app](https://swarajya-ai.vercel.app)
 
-### Backend Deployment
+### Backend
 
-Hosted on Render:
-https://swarajya-ai-backend.onrender.com
+[https://swarajya-ai-backend.onrender.com](https://swarajya-ai-backend.onrender.com)
 
 ---
 
 ## Current Capabilities
 
-* AI-powered multilingual conversations
-* PDF understanding and summarization
-* Contextual document querying
-* Persistent user conversations
-* Voice-enabled responses
-* Cloud deployment with MongoDB integration
-* Authentication and user session handling
+* Multilingual AI conversations
+* AI-powered PDF analysis
+* Context-aware RAG pipeline
+* Voice-enabled interaction
+* Persistent conversation history
+* Authentication and session management
+* Cloud deployment architecture
 
 ---
 
 ## Future Enhancements
 
-* Advanced semantic vector search
-* Real-time streaming AI responses
+* Semantic vector database integration
 * OCR support for scanned documents
-* Mobile application support
-* AI-generated complaint drafting
-* Integration with government service APIs
-* Enhanced legal dataset fine-tuning
+* Real-time streaming AI responses
+* Government API integrations
+* AI complaint drafting system
+* Mobile application deployment
+* Advanced legal fine-tuned models
 
 ---
 
 ## Developer
 
-Namratha Sindhu
+**Namratha Sindhu**
 Information Science Engineering Student
-AI and Full Stack Development Enthusiast
+AI & Full Stack Development Enthusiast
 
 ---
 
@@ -235,4 +238,12 @@ AI and Full Stack Development Enthusiast
 This project is licensed under the MIT License.
 
 ```
+
+After pasting:
+1. Replace entire README
+2. Commit changes
+3. Push to GitHub
+4. Refresh repository page
+
+Then it will render professionally like the first image.
 ```
