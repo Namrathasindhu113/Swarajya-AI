@@ -1,4 +1,3 @@
-````md
 # Swarajya AI
 
 ### A Multilingual AI-Powered Legal Rights & Government Services Assistant
@@ -16,73 +15,86 @@ The platform leverages conversational AI, Retrieval-Augmented Generation (RAG), 
 ## Core Features
 
 ### AI-Powered Citizen Assistance
-- Conversational AI support for legal and civic guidance
-- Context-aware responses using advanced language models
-- Simplified explanations for complex constitutional and legal topics
+
+* Conversational AI support for legal and civic guidance
+* Context-aware responses using advanced language models
+* Simplified explanations for constitutional and legal topics
 
 ### Multilingual Support
+
 Supports multiple regional languages including:
-- English
-- Hindi
-- Tamil
-- Telugu
-- Kannada
-- Malayalam
-- Bengali
-- Marathi
-- Gujarati
-- Punjabi
-- Urdu
+
+* English
+* Hindi
+* Tamil
+* Telugu
+* Kannada
+* Malayalam
+* Bengali
+* Marathi
+* Gujarati
+* Punjabi
+* Urdu
 
 ### PDF Intelligence & RAG System
-- Upload and analyze PDF documents
-- Retrieval-Augmented Generation (RAG)
-- Context-based document querying
-- AI-powered summarization and explanation
+
+* Upload and analyze PDF documents
+* Retrieval-Augmented Generation (RAG)
+* Context-based document querying
+* AI-powered summarization and explanation
 
 ### Voice Interaction
-- Speech-to-text support
-- AI voice response generation
-- Multilingual audio interaction
+
+* Speech-to-text support
+* AI voice response generation
+* Multilingual audio interaction
 
 ### Authentication & User Management
-- JWT-based secure authentication
-- Persistent user conversations
-- Conversation history management
+
+* JWT-based secure authentication
+* Persistent user conversations
+* Conversation history management
 
 ### Conversation Persistence
-- Dynamic sidebar conversation history
-- MongoDB conversation storage
-- Real-time conversation retrieval
+
+* Dynamic sidebar conversation history
+* MongoDB conversation storage
+* Real-time conversation retrieval
 
 ---
 
 ## Technical Stack
 
 ### Frontend
-- React.js
-- Vite
-- Tailwind CSS
+
+* React.js
+* Vite
+* Tailwind CSS
 
 ### Backend
-- Node.js
-- Express.js
+
+* Node.js
+* Express.js
 
 ### Database
-- MongoDB Atlas
+
+* MongoDB Atlas
 
 ### AI & NLP
-- OpenRouter API
-- OpenAI-compatible LLMs
-- Retrieval-Augmented Generation (RAG)
+
+* OpenRouter API
+* OpenAI-compatible LLMs
+* Retrieval-Augmented Generation (RAG)
 
 ### Document Processing
-- pdfjs-dist
-- Custom chunk retrieval pipeline
+
+* pdfjs-dist
+* Custom chunk retrieval pipeline
 
 ### Deployment
-- Vercel (Frontend)
-- Render (Backend)
+
+* Vercel (Frontend)
+* Render (Backend)
 
 ---
 
@@ -105,7 +117,7 @@ Express.js Backend API
  ┌───────────────┐
  │ PDF RAG Layer │
  └───────────────┘
-````
+```
 
 ---
 
@@ -236,14 +248,3 @@ AI & Full Stack Development Enthusiast
 ## License
 
 This project is licensed under the MIT License.
-
-```
-
-After pasting:
-1. Replace entire README
-2. Commit changes
-3. Push to GitHub
-4. Refresh repository page
-
-Then it will render professionally like the first image.
-```
