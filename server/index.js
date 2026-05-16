@@ -65,86 +65,107 @@ if (
     );
 
 }
+ 
+  let completion;
 
-    const completion =
-      await openai.chat.completions.create({
+  completion =
+    await openai.chat.completions.create({
 
-        model: "openai/gpt-3.5-turbo",
+      model:
+        "mistralai/mistral-7b-instruct",
 
-        messages: [
-          {
-            role: "system",
-            content:`You are Swarajya AI, a helpful citizen assistant.
-            Always reply in ${language} language.`,
-          },
-          {
-            role: "user",
-            content: `
-            Relevant PDF Context:
-            ${relevantContext || pdfText || "No PDF uploaded"}
+      messages: [
 
-            User Question:
-            ${message}
+        {
+          role: "system",
 
-            Answer clearly and simply in ${language} language.
-            `,
-          },
-        ],
+          content: `
+You are Swarajya AI,
+a helpful citizen assistant.
 
-      });
-
-    const reply =
-      completion.choices[0].message.content;
-
-    // SAVE TO CONVERSATION
-    if (conversationId) {
-
-  await Conversation.findByIdAndUpdate(
-    conversationId,
-    {
-
-      $set: {
-        title: message.substring(0, 30),
-      },
-
-      $push: {
-        messages: {
-          $each: [
-            {
-              sender: "user",
-              text: message,
-            },
-            {
-              sender: "ai",
-              text: reply,
-            },
-          ],
+Always reply in
+${language} language.
+`,
         },
-      },
 
-    }
-  );
+        {
+          role: "user",
 
-}
-    // SAVE TO CHAT HISTORY
-    await Chat.create({
-      userMessage: message,
-      aiMessage: reply,
+          content: `
+Relevant PDF Context:
+${relevantContext || pdfText || "No PDF uploaded"}
+
+User Question:
+${message}
+
+Answer clearly and simply.
+`,
+        },
+
+      ],
+
     });
 
-    res.json({
-      reply,
-    });
+  const reply =
+    completion.choices[0]
+      .message.content;
 
-  } catch (error) {
+  // SAVE TO CONVERSATION
+  if (conversationId) {
 
-    console.log(error);
+    await Conversation.findByIdAndUpdate(
+      conversationId,
+      {
 
-    res.status(500).json({
-      error: "Something went wrong",
-    });
+        $set: {
+          title:
+            message.substring(0, 30),
+        },
+
+        $push: {
+          messages: {
+            $each: [
+
+              {
+                sender: "user",
+                text: message,
+              },
+
+              {
+                sender: "ai",
+                text: reply,
+              },
+
+            ],
+          },
+        },
+
+      }
+    );
 
   }
+
+  await Chat.create({
+
+    userMessage: message,
+
+    aiMessage: reply,
+
+  });
+
+  res.json({
+    reply,
+  });
+
+} catch (error) {
+
+  console.log(error);
+
+  res.status(500).json({
+    error: "Something went wrong",
+  });
+
+}
 
 });
 // HISTORY ROUTE
