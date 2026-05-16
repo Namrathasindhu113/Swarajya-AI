@@ -72,7 +72,7 @@ if (
     await openai.chat.completions.create({
 
       model:
-        "mistralai/mistral-7b-instruct",
+        "meta-llama/llama-3-8b-instruct:free",
 
       messages: [
 
