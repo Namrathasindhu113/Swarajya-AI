@@ -17,6 +17,8 @@ function App() {
 
 useEffect(() => {
 
+  fetchConversations();
+
   if (!token) {
 
     window.location.href = "/login";
@@ -74,42 +76,31 @@ const userId =
 
   const fetchConversations = async () => {
 
-    try {
+  try {
 
-     const response = await axios.get(
-       `https://swarajya-ai-backend.onrender.com/conversation/${userId}`
-     );
+      const response =
+      await axios.get(
+        `https://swarajya-ai-backend.onrender.com/conversations/${userId}`
+      );
 
-      const formattedChats =
-  response.data.map((chat) => ({
+    console.log(
+      "CONVERSATIONS:",
+      response.data
+    );
 
-    ...chat,
+    setConversations(
+      response.data || []
+    );
 
-    title:
+  } catch (error) {
 
-      chat.title &&
-      chat.title !== "New Chat"
+    console.log(error);
 
-        ? chat.title
+    setConversations([]);
 
-        : chat.messages?.[0]?.text
-            ?.substring(0, 25)
+  }
 
-        || "New Chat",
-
-  }));
-
-setConversations(
-  formattedChats
-);
-
-    } catch (error) {
-
-      console.log(error);
-
-    }
-
-  };
+ };
 
   const createNewChat = async () => {
 
@@ -394,7 +385,8 @@ const speech =
 
         <div className="space-y-3">
 
-          {conversations.map((chat) => (
+          {Array.isArray(conversations) &&
+            conversations.map((chat) => (
 
   <div
     key={chat._id}
