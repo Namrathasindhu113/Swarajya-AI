@@ -31,7 +31,9 @@ const decoded =
   jwtDecode(token);
 
 const userId =
-  decoded.id;
+  decoded.id || decoded._id;
+
+  console.log("USER ID:", userId);
 
   const welcomeMessage = {
     sender: "ai",

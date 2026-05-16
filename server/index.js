@@ -463,7 +463,7 @@ app.get("/conversations/:userId", async (req, res) => {
         createdAt: -1,
       });
 
-    res.json(conversations);
+    res.json(conversations || []);
 
   } catch (error) {
 
